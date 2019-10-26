@@ -6,8 +6,15 @@ import "./Timeline.css";
 
 export default class TimeLine extends Component {
   state = {
-    newTweet: ""
+    newTweet: "",
+    tweets: []
   };
+
+  async componentDidMount() {
+    const { data } = await api.get("tweets");
+
+    this.setState({ tweets: data });
+  }
 
   handleNewTweet = async e => {
     if (e.keyCode !== 13) return;
