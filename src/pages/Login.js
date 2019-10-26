@@ -8,6 +8,10 @@ export default class Login extends Component {
     username: ""
   };
 
+  handleSubmit = e => {
+    e.preventDefault();
+  };
+
   handleInputChange = e => {
     this.setState({ username: e.target.value });
   };
@@ -17,7 +21,7 @@ export default class Login extends Component {
     return (
       <div className="login-wrapper">
         <img src={logo} alt="Twitter" />
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             value={username}
             onChange={this.handleInputChange}
