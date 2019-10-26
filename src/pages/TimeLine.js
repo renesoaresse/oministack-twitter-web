@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../services/api";
+import Tweet from "../components/Tweet";
 
 import logo from "../twitter.svg";
 import "./Timeline.css";
@@ -32,7 +33,7 @@ export default class TimeLine extends Component {
   };
 
   render() {
-    const { newTweet } = this.state;
+    const { newTweet, tweets } = this.state;
 
     return (
       <div className="timeline-wrapper">
@@ -46,6 +47,11 @@ export default class TimeLine extends Component {
             placeholder="O que está pensando?"
           />
         </form>
+        <ul className="tweet-list">
+          {tweets.map(tweet => (
+            <Tweet key={tweet._id} tweet={tweet} />
+          ))}
+        </ul>
       </div>
     );
   }
