@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import api from "../services/api";
 
 import logo from "../twitter.svg";
 import "./Timeline.css";
@@ -8,13 +9,13 @@ export default class TimeLine extends Component {
     newTweet: ""
   };
 
-  handleNewTweet = e => {
+  handleNewTweet = async e => {
     if (e.keyCode !== 13) return;
 
     const { newTweet: content } = this.state;
     const author = localStorage.getItem("@Twitter:username");
 
-    console.log(content, author);
+    await api.post("tweets", { author, content });
 
     this.setState({ newTweet: "" });
   };
