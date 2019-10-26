@@ -10,6 +10,12 @@ export default class Login extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    const { username } = this.state;
+
+    if (!username.length) return;
+
+    localStorage.setItem("@Twitter:username", username);
   };
 
   handleInputChange = e => {
