@@ -7,6 +7,7 @@ O projeto de estudo utiliza como base da semana Omnistack, para que nas próxima
 Para o funcionamento do projeto, você tem que ter instalado em sua máquina:
 
 - Yarn ou NPM
+- Necessário rodar o projeto da [API](https://github.com/renesoaresse/oministack-twitter-api)
 
 ## Instalação
 
